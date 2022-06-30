@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Gallery from "./pages/Gallery";
+import LoginComponent from "./components/LoginComponent";
+import Navbar from "./components/Navbar";
+import RegisterComponent from "./components/RegisterComponent";
+import { RouteAuthentication } from "./components/RouteAuthentication";
+import UserPage from "./pages/UserPage";
+import ViewAlbum from "./pages/ViewAlbum";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className="App">
+			<Navbar />
+			<Routes>
+				<Route path="/" element={<Home />} />
+				<Route
+					path="/gallery/:docId"
+					element={
+						<RouteAuthentication redirectTo="/">
+							<Gallery />
+						</RouteAuthentication>
+					}
+				/>
+				<Route path="/album/:id" element={<ViewAlbum />} />
+				<Route
+					path="/user"
+					element={
+						<RouteAuthentication redirectTo="/">
+							<UserPage />
+						</RouteAuthentication>
+					}
+				/>
+				<Route />
+			</Routes>
+		</div>
+	);
 }
 
 export default App;

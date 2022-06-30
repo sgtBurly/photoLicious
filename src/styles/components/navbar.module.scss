@@ -1,0 +1,12 @@
+.navbar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: .75rem 4rem;
+
+    .navbar__authmodal{
+        position: absolute;
+        top: 2rem;
+        right: 1rem;
+    }
+}

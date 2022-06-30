@@ -1,0 +1,32 @@
+@use './styles/general/variables.scss';
+@use './styles/general/colors.scss';
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Code+Pro:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Libre Baskerville', serif;
+  background-color: map-get(colors.$color, soft-white);
+  a {
+    text-decoration: none;
+    color: map-get(colors.$color, slate);
+  }
+  
+  button,
+  label,
+  input {
+    font-size: 1.125rem;
+    font-family: 'Source Code Pro', monospace;
+    display: inline-block;
+    border: none;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: map-get(colors.$color, outer-space);
+    font-family: 'Source Code Pro', monospace;
+  }
+
+}

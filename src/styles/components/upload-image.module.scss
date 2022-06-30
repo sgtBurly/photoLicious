@@ -1,0 +1,66 @@
+@use "../general/variables.scss";
+@use "../global/placeholders.scss";
+@use '../general/colors.scss';
+
+.uploadImage {
+	width: calc(100%);
+	max-width: 1120px;
+	padding: 1rem;
+	box-shadow: variables.$default-box-shadow;
+	border-radius: variables.$default-border-radius;
+
+	.uploadImage__thumbnail {
+		width: 100%;
+		img {
+			height: auto;
+			width: 100%;
+		}
+	}
+
+	.uploadImage__form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1.5rem;
+	
+		.form__uploadImage {
+
+			// Remove the default styling for input
+			.form__input {
+				border: 0;
+				clip: rect(0, 0, 0, 0);
+				height: 1px;
+				overflow: hidden;
+				padding: 0;
+				position: absolute !important;
+				white-space: nowrap;
+				width: 1px;
+	
+				// And add custom styling. The label is used as the button text
+				& + .form__label {
+					cursor: pointer;
+					@extend %button;
+				}
+	
+				&:focus + .form__label,
+				& + .form__label:hover {
+					color: map-get(colors.$color, soft-gray);
+					background-color: map-get(colors.$color, outer-space);
+				}
+	
+				&:focus + .form__label {
+					outline: 1px dotted #000;
+					outline: -webkit-focus-ring-color auto 5px;
+				}
+			}
+		}
+
+		.form__feedback{
+			// background-color: map-get(colors.$color, granite);
+		}
+
+        .form__button {
+            @extend %button
+        }
+	}
+}

@@ -1,0 +1,19 @@
+@use '../general/variables.scss';
+@use '../general/colors.scss';
+
+%button {
+    border-radius: variables.$default-border-radius;
+    padding: 4px 6px;
+    box-shadow: variables.$secondary-box-shadow;
+    color: map-get(colors.$color, outer-space);
+    background-color: map-get(colors.$color, soft-gray);
+    transition: all .4s;
+    max-width: max-content;
+    padding: .85rem;
+    
+    &:hover {
+        color: map-get(colors.$color, soft-gray);
+        background-color: map-get(colors.$color, outer-space);
+        
+    }
+}
